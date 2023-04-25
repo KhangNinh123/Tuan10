@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Display JavaScript object array as a table</title>
+  </head>
+  <body>
+    <table id="people-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Street</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Zip</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+    <script>
+      const people = [
+        {
+          name: "John Doe",
+          age: 30,
+          address: {
+            street: "123 Main St",
+            city: "Anytown",
+            state: "CA",
+            zip: "12345"
+          }
+        },
+        {
+          name: "Jane Smith",
+          age: 25,
+          address: {
+            street: "456 Oak Ave",
+            city: "Somecity",
+            state: "NY",
+            zip: "67890"
+          }
+        }
+      ];
+
+      // Create table rows and table columns to display information about each object in the people array
+      const tableBody = document.querySelector("#people-table tbody");
+
+      people.forEach(person => {
+        const row = document.createElement("tr");
+
+        const nameCell = document.createElement("td");
+        nameCell.textContent = person.name;
+        row.appendChild(nameCell);
+
+        const ageCell = document.createElement("td");
+        ageCell.textContent = person.age;
+        row.appendChild(ageCell);
+
+        const streetCell = document.createElement("td");
+        streetCell.textContent = person.address.street;
+        row.appendChild(streetCell);
+
+        const cityCell = document.createElement("td");
+        cityCell.textContent = person.address.city;
+        row.appendChild(cityCell);
+
+        const stateCell = document.createElement("td");
+        stateCell.textContent = person.address.state;
+        row.appendChild(stateCell);
+
+        const zipCell = document.createElement("td");
+        zipCell.textContent = person.address.zip;
+        row.appendChild(zipCell);
+
+        tableBody.appendChild(row);
+      });
+    </script>
+  </body>
+</html>
